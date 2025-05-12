@@ -1,12 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 export default function App() {
+
+  const picInicio = require('../Inicio/assets/images/picInicio.png');
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style={styles.container}>
+      <Image source={picInicio} resizeMode="cover" style={{flex: 1, justifyContent: 'center'}}/>
+      <View style={{flex:3}}></View>
+      <View style={{flex:1}}>
+        <Text style={{fontWeight:'bold', fontSize: 28, textAlign:'center'}}>Descubre eventos </Text>
+        <Text style={{fontWeight:'bold', fontSize: 28, textAlign:'center', marginBottom: 15}}>que conectan tu pasión</Text>
+
+        <Text style={{fontSize: 15, textAlign:'center', marginHorizontal:30}}>Participa de eventos relevantes para </Text>
+        <Text style={{fontSize: 15, textAlign:'center', marginHorizontal:30}}>vos, de forma simple y organizada</Text>
+      </View>
+      <View style={styles.botones}>
+        <TouchableOpacity >
+          <Text style={styles.botonVio}>Log in</Text>
+        </TouchableOpacity>
+        <TouchableOpacity >
+          <Text style={[styles.botonLight,  styles.shadowProp]}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -17,4 +36,46 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  botones:{
+    width: 280,
+    height: 50,
+    flexDirection:'row',
+    justifyContent: 'space-between',
+    flex:0.5,
+  },
+
+
+  botonVio:{
+    
+    backgroundColor: '#642684',
+    width:120,
+    height:40,
+    color: 'white',
+    borderRadius:5,
+    textAlign:'center',
+    paddingTop:9,
+  },
+
+  botonLight:{
+    backgroundColor: '#fff',
+    width:120,
+    height:40,
+    borderColor: '#642684',
+    borderRadius:5,
+    textAlign:'center',
+    paddingTop:9,
+
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+    	height: 9,
+    },
+
+    shadowOpacity: 0.50,
+    shadowRadius: 12.35,
+
+    elevation: 19,
+  },
+
 });
