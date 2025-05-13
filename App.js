@@ -8,8 +8,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Image source={picInicio} resizeMode="cover" style={styles.img}/>
-      <View style={{flex:15
-      }}>
+      <View style={{flex:8, marginBottom:60}}>
         <Text style={{fontWeight:'bold', fontSize: 28, textAlign:'center'}}>Descubre eventos </Text>
         <Text style={{fontWeight:'bold', fontSize: 28, textAlign:'center', marginBottom: 15}}>que conectan tu pasión</Text>
 
@@ -17,7 +16,7 @@ export default function App() {
         <Text style={{fontSize: 15, textAlign:'center', marginHorizontal:30}}>vos, de forma simple y organizada</Text>
       </View>
       <View style={styles.botones}>
-        <TouchableOpacity >
+        <TouchableOpacity style={{height:10}}>
           <Text style={styles.botonVio}>Log in</Text>
         </TouchableOpacity>
         <TouchableOpacity >
@@ -39,15 +38,19 @@ const styles = StyleSheet.create({
 
   img:{
     width:350,
+    height:250,
     resizeMode:'contain',
+    flex:16,
+    marginBottom:85,
+    marginTop:220,
   },
 
   botones:{
     width: 280,
-    height: 50,
+    height: 40,
     flexDirection:'row',
     justifyContent: 'space-between',
-    flex:7,
+    flex:5,
   },
 
 
@@ -60,6 +63,17 @@ const styles = StyleSheet.create({
     borderRadius:5,
     textAlign:'center',
     paddingTop:9,
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+    	height: 9,
+    },
+
+    shadowOpacity: 0.50,
+    shadowRadius: 12.35,
+
+    elevation: 19,
+    
   },
 
   botonLight:{
