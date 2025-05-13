@@ -3,13 +3,13 @@ import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image } from 'r
 
 export default function App() {
 
-  const picInicio = require('../Inicio/assets/images/picInicio.png');
+  const picInicio = require('./assets/images/picInicio.png');
 
   return (
     <SafeAreaView style={styles.container}>
-      <Image source={picInicio} resizeMode="cover" style={{flex: 1, justifyContent: 'center'}}/>
-      <View style={{flex:3}}></View>
-      <View style={{flex:1}}>
+      <Image source={picInicio} resizeMode="cover" style={styles.img}/>
+      <View style={{flex:15
+      }}>
         <Text style={{fontWeight:'bold', fontSize: 28, textAlign:'center'}}>Descubre eventos </Text>
         <Text style={{fontWeight:'bold', fontSize: 28, textAlign:'center', marginBottom: 15}}>que conectan tu pasión</Text>
 
@@ -37,12 +37,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  img:{
+    width:350,
+    resizeMode:'contain',
+  },
+
   botones:{
     width: 280,
     height: 50,
     flexDirection:'row',
     justifyContent: 'space-between',
-    flex:0.5,
+    flex:7,
   },
 
 
