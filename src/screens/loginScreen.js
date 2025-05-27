@@ -54,9 +54,7 @@ export default function loginScreen() {
           <StatusBar backgroundColor="#642684" style='light'/>
         
         <TouchableOpacity style={styles.btnView}>
-          <Button
-            title="Ingresar"
-            color="#642684"/>
+          <Text style={{textAlign:'center', color:'#ffffff'}}>Ingresar</Text>
         </TouchableOpacity>
         </KeyboardAvoidingView>
         
@@ -122,11 +120,14 @@ const styles = StyleSheet.create({
   },
 
   btnView:{
+    display:'flex',
     justifyContent: 'center',
     alignContent: 'center',
     width:300,
     borderRadius: 5, 
     marginBottom:45,
+    backgroundColor:'#642684',
+    height: 45,
    },
 
   container: {
