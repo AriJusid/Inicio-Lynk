@@ -1,15 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { ImageBackground, TouchableOpacity, Platform, StyleSheet, Text, TextInput, View, Button, Image, KeyboardAvoidingView, } from 'react-native';
+import { ImageBackground, TouchableOpacity, Platform, StyleSheet, Text, TextInput, View, Button, Image, KeyboardAvoidingView, Pressable, } from 'react-native';
 import HideWithKeyboard from 'react-native-hide-with-keyboard';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import logInScreen from './logInScreen';
+import inicioScreen from './incioScreen';
 
 export default function signUpScreen() {
   
   const [mail, onChangeText] = React.useState('');
   const [psw, onChangeNumber] = React.useState('');
-  const loginPic = require('../../assets/images/login.png');
+  const signPic = require('../../assets/images/signPic.png');
   const bgLogin = require('../../assets/images/bgLogin.png');
   const arrow = {uri: 'https://cdn-icons-png.flaticon.com/512/154/154630.png'};
 
@@ -21,23 +23,36 @@ export default function signUpScreen() {
     <ImageBackground source={bgLogin} resizeMode="cover" style={{flex: 1, justifyContent: 'center'}}>
     <View style={styles.header}> 
 
-    <TouchableOpacity onPress={() => navigation.goBack()}>
+    <TouchableOpacity onPress={() => navigation.navigate(inicioScreen)}>
       <Image style={styles.arrow} source={arrow} />
     </TouchableOpacity>      
-    <Text style={styles.headerText}> Bienvenido de vuelta</Text>
+    <Text style={styles.headerText}> Bienvenido a Lynk</Text>
 
     </View>
 
     <View style={styles.picView}>
       <Image 
-          style={styles.logPic}
-          source={loginPic}
+          style={styles.signPic}
+          source={signPic}
         />
 
     </View>
 
       <View style={{flex: 4}}>  
         <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+          <TextInput 
+            style = {styles.input}
+            onChangeText={onChangeText}
+            value={mail}
+            placeholder="Ingrese su nombre"/>
+
+          <TextInput 
+            style = {styles.input}
+            onChangeText={onChangeNumber}
+            value={psw}
+            placeholder="Ingrese su apellido"
+            secureTextEntry/>
+
           <TextInput 
             style = {styles.input}
             onChangeText={onChangeText}
@@ -51,6 +66,13 @@ export default function signUpScreen() {
             placeholder="Ingrese su contraseña"
             secureTextEntry/>
 
+          <TextInput 
+            style = {styles.input}
+            onChangeText={onChangeNumber}
+            value={psw}
+            placeholder="Confirmar contraseña"
+            secureTextEntry/>
+
           <StatusBar backgroundColor="#642684" style='light'/>
         
         <TouchableOpacity style={styles.btnView}>
@@ -59,16 +81,9 @@ export default function signUpScreen() {
         </KeyboardAvoidingView>
         
         <HideWithKeyboard style={styles.bottomSection}>
-          <Text style={{fontSize:15,}}>No tienes cuenta?  <Text style={{color: '#642684', fontSize:15, textDecorationLine: 'underline'}} >Crear cuenta</Text>
+          <Text style={{fontSize:15,}}>Ya tienes cuenta?  <Pressable style={{display:'flex', alignItems:'center', justifyContent:'center'}} onPress={() => navigation.navigate(logInScreen)}><Text style={{color: '#642684', fontSize:15, textDecorationLine: 'underline', paddingTop:3}} >Log in</Text></Pressable>
           </Text>
-          <View style={styles.redes}>
-            <Text style={{fontSize: 15, textAlign: 'center', marginBottom:10,}}>O continua con </Text>
-            <View style={{flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
-              <Image style={{width: 30, height: 30}} source={{uri: 'https://cdn.iconscout.com/icon/free/png-512/free-google-logo-icon-download-in-svg-png-gif-file-formats--brands-pack-logos-icons-189824.png?f=webp&w=256'}}/>
-              <Image style={{width: 48, height: 48}} source={{uri: 'https://static.vecteezy.com/system/resources/previews/042/148/632/non_2x/instagram-logo-instagram-social-media-icon-free-png.png'}}/>  
-              <Image style={{width: 30, height: 30}} source={{uri: 'https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338508_1280.png'}}/>
-            </View>
-          </View>
+
         </HideWithKeyboard>
       </View>  
     </ImageBackground>
@@ -82,6 +97,12 @@ const styles = StyleSheet.create({
     marginTop: 60,
     marginLeft: 20,
     flexDirection: 'row'
+  },
+  
+  signPic:{
+    resizeMode:'cover',
+    width:250,
+    height:250,
   },
 
   redes:{
@@ -99,19 +120,13 @@ const styles = StyleSheet.create({
     marginLeft:15,
   },
 
-  logPic:{
-    resizeMode: 'contain',
-    flex:7,
-    justifyContent: 'center',
-    marginRight:10
-  },
 
   picView:{
-    flex:3, 
+    flex:1, 
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:20,
-    marginTop: 40,
+    marginBottom:60,
+    marginTop: 5,
   },
 
   headerText:{

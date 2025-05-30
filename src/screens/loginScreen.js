@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { ImageBackground, TouchableOpacity, Platform, StyleSheet, Text, TextInput, View, Button, Image, KeyboardAvoidingView, } from 'react-native';
+import { ImageBackground, TouchableOpacity, Platform, StyleSheet, Text, TextInput, View, Button, Image, KeyboardAvoidingView, Pressable, } from 'react-native';
 import HideWithKeyboard from 'react-native-hide-with-keyboard';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import signUpScreen from './signUpScreen';
+import inicioScreen from './incioScreen';
 
 export default function logInScreen() {
   
@@ -12,7 +14,6 @@ export default function logInScreen() {
   const loginPic = require('../../assets/images/login.png');
   const bgLogin = require('../../assets/images/bgLogin.png');
   const arrow = {uri: 'https://cdn-icons-png.flaticon.com/512/154/154630.png'};
-
   const navigation = useNavigation();
 
 
@@ -21,7 +22,7 @@ export default function logInScreen() {
     <ImageBackground source={bgLogin} resizeMode="cover" style={{flex: 1, justifyContent: 'center'}}>
     <View style={styles.header}> 
 
-    <TouchableOpacity onPress={() => navigation.goBack()}>
+    <TouchableOpacity onPress={() => navigation.navigate(inicioScreen)}>
       <Image style={styles.arrow} source={arrow} />
     </TouchableOpacity>      
     <Text style={styles.headerText}> Bienvenido de vuelta</Text>
@@ -59,7 +60,7 @@ export default function logInScreen() {
         </KeyboardAvoidingView>
         
         <HideWithKeyboard style={styles.bottomSection}>
-          <Text style={{fontSize:15,}}>No tienes cuenta?  <Text style={{color: '#642684', fontSize:15, textDecorationLine: 'underline'}} >Crear cuenta</Text>
+          <Text style={{fontSize:15,}}>No tienes cuenta?  <Pressable onPress={() => navigation.navigate(signUpScreen)}><Text style={{color: '#642684', fontSize:15, textDecorationLine: 'underline'}}>Crear cuenta</Text></Pressable>
           </Text>
           <View style={styles.redes}>
             <Text style={{fontSize: 15, textAlign: 'center', marginBottom:10,}}>O continua con </Text>
