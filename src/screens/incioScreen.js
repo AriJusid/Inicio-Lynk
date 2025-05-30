@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import loginScreen from './loginScreen'
+import logInScreen from './logInScreen'
+import signUpScreen from './signUpScreen';
 
 export default function inicioScreen() {
   const navigation = useNavigation();
@@ -19,10 +20,10 @@ export default function inicioScreen() {
         <Text style={{fontSize: 15, textAlign:'center', marginHorizontal:30}}>vos, de forma simple y organizada</Text>
       </View>
       <View style={styles.botones}>
-        <TouchableOpacity style={{height:10}} onPress={() => navigation.navigate(loginScreen)}> 
+        <TouchableOpacity style={{height:10}} onPress={() => navigation.navigate(logInScreen)}> 
           <Text style={styles.botonVio}>Log in</Text>
         </TouchableOpacity>
-        <TouchableOpacity >
+        <TouchableOpacity onPress={() => navigation.navigate(signUpScreen)}>
           <Text style={[styles.botonLight,  styles.shadowProp]}>Sign Up</Text>
         </TouchableOpacity>
       </View>

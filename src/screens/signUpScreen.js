@@ -5,7 +5,7 @@ import HideWithKeyboard from 'react-native-hide-with-keyboard';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function logInScreen() {
+export default function signUpScreen() {
   
   const [mail, onChangeText] = React.useState('');
   const [psw, onChangeNumber] = React.useState('');

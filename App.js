@@ -3,8 +3,8 @@ import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image } from 'r
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import inicioScreen from './src/screens/incioScreen'
-import loginScreen from './src/screens/loginScreen'
-
+import logInScreen from './src/screens/logInScreen'
+import signUpScreen from './src/screens/signUpScreen'
 
 const Stack1 = createNativeStackNavigator();
 
@@ -12,8 +12,10 @@ function Stack1Navigator() {
   return (
     <Stack1.Navigator screenOptions={{ headerShown: false }}>
       <Stack1.Screen name="inicioScreen" component={inicioScreen} />
-      <Stack1.Screen name="loginScreen" component={loginScreen} options={{
+      <Stack1.Screen name="logInScreen" component={logInScreen} options={{
     headerTransparent: true,  headerTitle: ''}}/>
+      <Stack1.Screen name="signUpScreen" component={signUpScreen} />
+
     </Stack1.Navigator>
   );
 }
