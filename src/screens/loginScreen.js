@@ -52,7 +52,7 @@ export default function logInScreen() {
             placeholder="Ingrese su contraseña"
             secureTextEntry/>
 
-          <StatusBar backgroundColor="#642684" style='light'/>
+          <StatusBar style='dark'/>
         
         <TouchableOpacity style={styles.btnView}>
           <Text style={{textAlign:'center', color:'#ffffff'}}>Ingresar</Text>

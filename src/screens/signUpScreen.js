@@ -73,7 +73,7 @@ export default function signUpScreen() {
             placeholder="Confirmar contraseña"
             secureTextEntry/>
 
-          <StatusBar backgroundColor="#642684" style='light'/>
+        <StatusBar style='dark'/>
         
         <TouchableOpacity style={styles.btnView}>
           <Text style={{textAlign:'center', color:'#ffffff'}}>Ingresar</Text>

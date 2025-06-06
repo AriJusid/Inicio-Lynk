@@ -2,9 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import inicioScreen from './src/screens/incioScreen'
-import logInScreen from './src/screens/logInScreen'
-import signUpScreen from './src/screens/signUpScreen'
+import inicioScreen from './src/screens/incioScreen.js'
+import logInScreen from './src/screens/logInScreen.js'
+import signUpScreen from './src/screens/signUpScreen.js'
 
 const Stack1 = createNativeStackNavigator();
 

@@ -27,7 +27,7 @@ export default function inicioScreen() {
           <Text style={[styles.botonLight,  styles.shadowProp]}>Sign Up</Text>
         </TouchableOpacity>
       </View>
-      <StatusBar backgroundColor="#642684" style='light'/>
+      <StatusBar  style='dark'/>
     </SafeAreaView>
   );
 }
